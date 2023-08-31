@@ -14,4 +14,5 @@ jobs:
       run: |
           az account show -o table
           az group list -o table
+          az ad group show --group "ESO_DEMO" --query id --out tsv
           pwd
