@@ -1,11 +1,13 @@
 name: First Workflow
-on: workflow_dispatch
-      inputs:
-        username:
-          description: 'Require User Name'
-          default: 'Deb Biswas'
-          required: true
-          type: string
+on: 
+  workflow_dispatch
+    inputs:
+      username:
+        description: 'Require User Name'
+        default: 'Deb Biswas'
+        required: true
+        type: string
+
 jobs:
  first-job:
    runs-on: ubuntu-latest
