@@ -1,7 +1,7 @@
 name: First Workflow
 on: workflow_dispatch
       inputs:
-        name:
+        username:
           description: 'Require User Name'
           default: 'Deb Biswas'
           required: true
@@ -11,8 +11,8 @@ jobs:
    runs-on: ubuntu-latest
    steps:
      - name: Print Greeting
-       run: echo "Hello ${{ inputs.name }}"
+       run: echo "Hello ${{ inputs.username }}"
      - name: Print Goodbye
        run: |
-           echo "Goodbye ${{ inputs.name }}"
+           echo "Goodbye ${{ inputs.username }}"
            echo "Tata bye bye.."
