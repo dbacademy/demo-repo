@@ -22,6 +22,7 @@ jobs:
       run: |
           az account show -o table
           az group list -o table
-          az ad group show --group "${{ inputs.groupname }}" --query id --out tsv
+          grp_id=$(az ad group show --group "${{ inputs.groupname }}" --query id --out tsv)
           echo "Group ID is $GR_ID"
+          echo "gr id is $grp_id"
           pwd
