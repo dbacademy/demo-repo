@@ -1,5 +1,11 @@
 name: AzureLoginSample
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      groupname:
+        description: 'Enter Group Name'
+        required: true
+        type: string
       
 jobs: 
   build-and-deploy:
@@ -14,5 +20,5 @@ jobs:
       run: |
           az account show -o table
           az group list -o table
-          az ad group show --group "cld-TSOPS-sm-CS-sg" --query id --out tsv
+          az ad group show --group "${{ inputs.groupname }}" --query id --out tsv
           pwd
