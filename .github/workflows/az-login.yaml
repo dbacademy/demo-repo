@@ -3,10 +3,15 @@ on:
   workflow_dispatch:
     inputs:
       groupname:
-        description: 'Enter Group Name'
+        description: 'Enter AD Group Name'
         required: true
         type: string
-      
+      rgname:
+        description: 'Enter Resource Group Name'
+        required: true
+        type: string
+
+    
 jobs: 
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -25,4 +30,5 @@ jobs:
           grp_id=$(az ad group show --group "${{ inputs.groupname }}" --query id --out tsv)
           echo "Group ID is $GR_ID"
           echo "gr id is $grp_id"
+          az role assignment create --assignee "$grp_id" --role "Reader" --scope "/subscriptions/cf41bb7f-c69b-4c3c-b595-577467e0c862/resourceGroups/${{ inputs.rgname }}"
           pwd
