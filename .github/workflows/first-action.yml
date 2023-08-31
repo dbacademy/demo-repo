@@ -4,7 +4,7 @@ on:
     inputs:
       username:
         description: 'Require User Name'
-        default: 'Deb Biswas'
+#        default: 'Deb Biswas'
         required: true
         type: string
 
