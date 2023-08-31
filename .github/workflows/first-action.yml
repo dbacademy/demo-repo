@@ -4,17 +4,20 @@ on:
     inputs:
       username:
         description: 'Require User Name'
-#        default: 'Deb Biswas'
+        default: 'Deb Biswas'
         required: true
         type: string
 
 jobs:
  first-job:
    runs-on: ubuntu-latest
+   env:
+     MY_NAME: ${{ inputs.username }}
    steps:
      - name: Print Greeting
        run: echo "Hello ${{ inputs.username }}"
      - name: Print Goodbye
        run: |
+           echo "My Name is $MY_NAME"
            echo "Goodbye ${{ inputs.username }}"
            echo "Tata bye bye.."
