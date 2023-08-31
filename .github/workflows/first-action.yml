@@ -1,6 +1,6 @@
 name: First Workflow
 on: 
-  workflow_dispatch
+  workflow_dispatch:
     inputs:
       username:
         description: 'Require User Name'
