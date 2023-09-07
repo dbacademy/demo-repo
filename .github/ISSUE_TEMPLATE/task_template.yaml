@@ -9,7 +9,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        <h2>Section for Feature details</h2>
+        <h3>Feature Details</h3>
   - type: input
     id: contact
     attributes:
