@@ -1,7 +1,7 @@
 name: OpenShift Feature templete
 description: Submit a Feature request
-title: "[Feature Title]: "
-labels: ["OCP", "Feature"]
+title: "[Feature Title] "
+labels: ["OCP"]
 projects: ["octo-org/1", "octo-org/44"]
 assignees:
   - dbacademy
