@@ -4,12 +4,12 @@ title: "[Feature Title]: "
 labels: ["OCP", "Feature"]
 projects: ["octo-org/1", "octo-org/44"]
 assignees:
-  - octocat
+  - dbacademy
 body:
   - type: markdown
     attributes:
       value: |
-        Section for Feature details
+        <h2>Section for Feature details</h2>
   - type: input
     id: contact
     attributes:
