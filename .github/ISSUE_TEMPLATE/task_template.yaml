@@ -28,12 +28,12 @@ body:
     validations:
       required: true      
   - type: textarea
-    id: what-happened
+    id: HypothesisStatement
     attributes:
-      label: What happened?
+      label: Benefit Hypothesis Statement
       description: Also tell us, what did you expect to happen?
       placeholder: Tell us what you see!
-      value: "A bug happened!"
+      value: "Click to add Benefit Hypothesis Statement"
     validations:
       required: true
   - type: dropdown
