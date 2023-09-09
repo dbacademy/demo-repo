@@ -22,7 +22,7 @@ body:
     id: description
     attributes:
       label: Description
-      description: Also tell us, what did you get benefit?
+      description: Also tell us about it?
       placeholder: Clieck to add description
       value: "Clieck to add description"
     validations:
