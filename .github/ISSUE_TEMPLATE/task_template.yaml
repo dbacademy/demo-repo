@@ -24,7 +24,7 @@ body:
       label: Description
       description: Also tell us, what did you expect to happen?
       placeholder: Clieck to add description
-      value: "A bug happened!"
+      value: "Clieck to add description"
     validations:
       required: true      
   - type: textarea
