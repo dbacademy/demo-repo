@@ -36,6 +36,15 @@ body:
       value: 
     validations:
       required: true
+  - type: textarea
+    id: AcceptenceCriteria
+    attributes:
+      label: Acceptence Criteria
+      description: 
+      placeholder: Click to add Acceptence Criteria!!
+      value: 
+    validations:
+      required: true      
   - type: dropdown
     id: version
     attributes:
