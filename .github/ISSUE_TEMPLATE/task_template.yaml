@@ -15,7 +15,7 @@ body:
     attributes:
       label: Short title
       description: Describe feature in one line
-      placeholder: 
+      placeholder: "Click to add short description"
     validations:
       required: true
   - type: textarea
