@@ -14,8 +14,8 @@ body:
     id: Title
     attributes:
       label: Short title
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      description: Describe feature in one line
+      placeholder: 
     validations:
       required: false
   - type: textarea
