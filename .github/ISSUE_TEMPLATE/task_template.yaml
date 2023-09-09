@@ -11,9 +11,9 @@ body:
       value: |
         <h3>Feature Details</h3>
   - type: input
-    id: contact
+    id: Title
     attributes:
-      label: Contact Details
+      label: Short title
       description: How can we get in touch with you if we need more info?
       placeholder: ex. email@example.com
     validations:
