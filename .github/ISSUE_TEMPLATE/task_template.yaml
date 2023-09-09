@@ -24,7 +24,7 @@ body:
       label: Description
       description: Also tell us about it?
       placeholder: Clieck to add description!!
-      value: ""
+      value: 
     validations:
       required: true      
   - type: textarea
@@ -33,7 +33,7 @@ body:
       label: Benefit Hypothesis Statement
       description: Also tell us, what did you expect to happen?
       placeholder: Click to add Benefit Hypothesis Statement!!
-      value: ""
+      value: 
     validations:
       required: true
   - type: dropdown
