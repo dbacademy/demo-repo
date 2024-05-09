@@ -1,5 +1,5 @@
 ## Demo-repo
-This is Git Demo Project
+This is Git Demo Project for actions
 
 ## Local Developmenet instructions
 
