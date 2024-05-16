@@ -4,6 +4,8 @@ on:
   pull_request:
     types:
       - opened
+    branches: [master]
+  workflow_dispatch:     
 
 jobs:
   if_merged:
@@ -12,4 +14,18 @@ jobs:
     steps:
     - run: |
         echo The PR was merged
-        
+  
+  email_notification:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send Email
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: mailrelay.volvocars.net
+        server_port: 25
+        subject: Github Actions job for email test
+        to: dbiswas@volvocars.com
+        from: Deb Biswas
+        body: Email test job of ${{github.repository}}
+
+
