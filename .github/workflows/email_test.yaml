@@ -1,4 +1,4 @@
-name: Delete Br on PR closed
+name: Email Testing
 
 on:
   pull_request:
