@@ -1,0 +1,29 @@
+name: Openshift Issue Template
+description: Submit a new issue
+title: "[Issue Title] "
+labels: ["OCP", "Issue"]
+projects: ["octo-org/1", "octo-org/44"]
+assignees:
+  - dbacademy
+body:
+  - type: markdown
+    attributes:
+      value: |
+        <h3>Issue Details</h3>
+  - type: input
+    id: Title
+    attributes:
+      label: Short title
+      description: Describe feature in one line
+      placeholder: "Click to add title"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Also tell us about it?
+      placeholder: Clieck to add description!!
+      value: 
+    validations:
+      required: true      
