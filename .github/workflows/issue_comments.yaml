@@ -7,10 +7,13 @@ on:
     types:
         - opened
         - reopened
+        - edited
 jobs:
    check_comments:
      name: Github new issue comments
      runs-on: ubuntu-latest
      steps:
        - name: Issue comments
-         run: echo ${{ github.event.issue.body }}
+         run: |
+          echo ${{ github.event.issue.title }}
+          echo ${{ github.event.issue.body }}
