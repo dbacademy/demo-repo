@@ -16,5 +16,5 @@ jobs:
      steps:
        - name: Issue comments
          run: |
-          echo ${{ github.event.issue.title }}
-          echo ${{ github.event.issue.body }}
+          echo "${{ github.event.issue.title }}"
+          echo "${{ github.event.issue.body }}"
