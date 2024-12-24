@@ -94,3 +94,30 @@ jobs:
               print(f"The namespace {namespace_name} does not exists, will be created.")
               kustomization_path = f"templates/namespace/{cluster_provider}/{cluster_environment}/{fname}"
               print(f"The new kustomization is  {kustomization_path}.")
+
+
+          # open the kustomization.yaml file for reading and writing
+          print(f"Loading the kustomization data from {kustomization_path}.")
+
+          yaml = YAML(typ=['rt', 'string'])
+          yaml.default_flow_style = False
+
+          with open(kustomization_path, "r+") as f:
+              # load the kustomization data
+              kustomization_data = yaml.load(f)
+
+          # Updating base kustomization file.
+          print("Updating the Namespace details.")
+          # update the Namespace details
+          kustomization_data["nameSuffix"] = namespace_name         
+
+          # Section to uodate kustomization patches 
+
+          if kustomization_data.keys().__contains__("patchesJson6902"):
+              docPatches = yaml.load(kustomization_data["patchesJson6902"][0]["patch"])
+              #kustomization_data["patchesJson6902"][0]["target"]["name"] = f"base-application-{namespace_name}"
+          else:
+              docPatches = yaml.load(kustomization_data["patches"][0]["patch"])
+              #kustomization_data["patches"][0]["target"]["name"] = f"base-application-{namespace_name}"
+
+              
