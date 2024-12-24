@@ -84,7 +84,8 @@ jobs:
           namespace_exists= os.path.isdir(namespace_path)
 
           if namespace_exists:
-              print(f"The namespace {namespace_name} exists, updating the filr {kustomization_path} .") 
+              print(f"The namespace {namespace_name} exists, updating the file {kustomization_path} .") 
           else:
-              print(f"The namespace {namespace_name} will be created.")
+              print(f"The namespace {namespace_name} does not exists, will be created.")
               kustomization_path = f"templates/namespace/{cluster_provider}/{cluster_environment}/{fname}"
+              print(f"The new kustomization is  {kustomization_path}.")
