@@ -1,0 +1,36 @@
+name: Create or update namespace
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      cloud_provider:
+        description: "Cloud provider AWS/Azure/Azure China"
+        required: true
+        type: string
+      cluster_group:
+        description: "Cluster group for example ecp"
+        required: true
+        type: string
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  namespace_ops:
+    name: Create or update the namespace
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Generate token
+        id: generate_token
+        uses: getsentry/action-github-app-token@v2
+        with:
+          app_id: ${{ secrets.GH_INTEGRATION_APP_ID }}
+          private_key: ${{ secrets.GH_INTEGRATION_APP_KEY }}
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}        
