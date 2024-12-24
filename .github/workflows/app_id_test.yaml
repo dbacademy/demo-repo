@@ -17,6 +17,14 @@ on:
         description: "Name of the namespace getting created or updated"
         required: true
         type: string
+      aad_group:
+        description: "AAD security group for namespace access"
+        required: true
+        type: string
+      app_id:
+        description: "APPID of the application which will be deployed in the namespace"
+        required: true
+        type: string        
         
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -69,6 +77,8 @@ jobs:
           cluster_provider='${{ inputs.cluster_provider }}'
           cluster_environment= '${{ inputs.cluster_environment }}'
           namespace_name= '${{ inputs.namespace_name }}'
+          add_group= '${{ inputs.add_group }}'
+          app_id= '${{ inputs.app_id }}'
 
           # Check cluster provider
           if cluster_provider != "azure" and cluster_provider != "onprem":
