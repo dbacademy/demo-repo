@@ -71,7 +71,7 @@ jobs:
           namespace_name= '${{ inputs.namespace_name }}'
 
           # Check cluster provider
-          if cluster_provider != "azure" and cluster_provider != "onprem"
+          if cluster_provider != "azure" and cluster_provider != "onprem":
             print(f"Cluster provider argument is not valid: {cluster_provider}")
             sys.exit(1)
 
