@@ -54,9 +54,28 @@ jobs:
           pip3 install ruamel.yaml
           pip3 install ruamel.yaml.string          
 
+      # Runs a python script to create or update namespace
+      - name: Create or update namespace
+        shell: python
+        run: |
+          #python3 "tools/create_update_namespace.py" '${{ inputs.cloud_provider }}' '${{ inputs.cluster_group }}' '${{ inputs.deploy_environment }}'  '${{ inputs.namespace_name }}' '${{ inputs.aad_group }}' '${{ inputs.app_id }}' '${{ inputs.apps }}'
+          import os
+          import sys
+          import json
+          from ruamel.yaml import YAML
+          from ruamel.yaml.scalarstring import PreservedScalarString
+          
+          # Get the command-line arguments
+          cluster_provider='${{ inputs.cluster_provider }}'
+          cluster_environment= '${{ inputs.cluster_environment }}'
+          namespace_name= '${{ inputs.namespace_name }}'
+
+          # Set CWD as cluster_environment path 
           cwd = os.getcwd() + "/namespaces/" + cluster_provider + "/" + cluster_environment 
+
           # Print the current working directory
           print("Current working directory: {0}".format(cwd))
+
           # Check if the namespace already exists
           #namespace_path = cwd + "/" + namespace_name
           #fname = "kustomization.yaml"
