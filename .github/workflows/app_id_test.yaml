@@ -46,7 +46,7 @@ jobs:
           pwd
           git fetch --unshallow
           echo "git checkout main"
-          git checkout -b update-kustomization-${{ inputs.namespace_name }}-${{ inputs.deploy_environment }} 
+          git checkout -b update-kustomization-${{ inputs.namespace_name }}-${{ inputs.cluster_environment }} 
 
       # Install python packages
       - name: Install packages
