@@ -87,4 +87,4 @@ jobs:
               print(f"The namespace {namespace_name} exists, updating the filr {kustomization_path} .") 
           else:
               print(f"The namespace {namespace_name} will be created.")
-              kustomization_path = f"templates/namespace/{cluster_provider}/{cluster_group}/{fname}"
+              kustomization_path = f"templates/namespace/{cluster_provider}/{cluster_environment}/{fname}"
