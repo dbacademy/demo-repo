@@ -58,14 +58,14 @@ jobs:
           # Print the current working directory
           print("Current working directory: {0}".format(cwd))
           # Check if the namespace already exists
-          namespace_path = cwd + "/" + namespace_name
-          fname = "kustomization.yaml"
-          kustomization_path = namespace_path + "/" + fname
+          #namespace_path = cwd + "/" + namespace_name
+          #fname = "kustomization.yaml"
+          #kustomization_path = namespace_path + "/" + fname
 
-          namespace_exists= os.path.isdir(namespace_path)
+          #namespace_exists= os.path.isdir(namespace_path)
 
-          if namespace_exists:
-              print(f"The namespace {namespace_name} exists, updating.") 
-          else:
-              print(f"The namespace {namespace_name} will be created.")
-              kustomization_path = f"templates/namespace/{cluster_provider}/{cluster_group}/{fname}"
+          #if namespace_exists:
+          #    print(f"The namespace {namespace_name} exists, updating.") 
+          #else:
+          #    print(f"The namespace {namespace_name} will be created.")
+          #    kustomization_path = f"templates/namespace/{cluster_provider}/{cluster_group}/{fname}"
