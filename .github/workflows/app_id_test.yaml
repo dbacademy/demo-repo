@@ -52,4 +52,8 @@ jobs:
           echo "git checkout main"
           git checkout -b update-kustomization-${{ inputs.namespace_name }}-${{ inputs.deploy_environment }} 
 
-          
+      # Install python packages
+      - name: Install packages
+        run: |
+          pip3 install ruamel.yaml
+          pip3 install ruamel.yaml.string          
