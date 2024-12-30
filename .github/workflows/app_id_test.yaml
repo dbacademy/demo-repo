@@ -191,6 +191,7 @@ jobs:
           print("Current working directory: {0}".format(cwd))
           namespace_name= '${{ inputs.namespace_name }}'
           namespace_path = f"{cwd}/${{ inputs.namespace_name }}"
+          print("Namespace directory path: {0}".format(namespace_path))
           fname = "kustomization.yaml"
           kustomization_path = namespace_path + "/" + fname
           # Change directory
