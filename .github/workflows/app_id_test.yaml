@@ -166,7 +166,9 @@ jobs:
 
 
           # Dump the modified object to the YAML file
+          print("New namespace path: {0}".format(namespace_path))
           if not os.path.isdir(namespace_path):
+              print("Creating namespace path: {0}".format(namespace_path))
               os.mkdir(namespace_path)
 
           print(f"Updating the {fname}.")
