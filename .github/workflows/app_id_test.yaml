@@ -175,3 +175,51 @@ jobs:
               yaml.dump(kustomization_data, f)
 
           print("Namespace details saved successfully.")            
+
+
+          - name: update kustomization.yaml with new namespace
+          id: validate-kustomization-file
+          shell: python
+          run: |
+            import os
+            from ruamel.yaml import YAML
+            
+            cwd = os.getcwd() + "/namespaces/" + "${{ inputs.cluster_provider }}" + "/" + "${{ inputs.cluster_environment }}" 
+            # Print the current working directory
+            print("Current working directory: {0}".format(cwd))
+            namespace_name= '${{ inputs.namespace_name }}'
+            namespace_path = f"{cwd}/${{ inputs.namespace_name }}"
+            fname = "kustomization.yaml"
+            kustomization_path = namespace_path + "/" + fname
+            # Change directory
+            print(f"Changing directory to: {cwd}")
+            os.chdir( cwd )
+            
+            yaml =  YAML(typ=['rt', 'string'])
+            yaml.default_flow_style = False
+            
+            # open the kustomization.yaml file for reading and writing
+            fname = "kustomization.yaml"
+            print("Load the kustomization data")
+            with open("kustomization.yaml", "r+") as f:
+                # load the kustomization data
+                kustomization_data = yaml.load(f)
+                if not namespace_name in kustomization_data["resources"]:
+                  print("Append namespace details in the Kustomization")
+                  # modify the data here, for example adding a new resource
+                  kustomization_data["resources"].append(namespace_name)
+                  
+                  # move the file pointer to the beginning of the file
+                  f.seek(0)
+                  
+                  print("Initialize the YAML object with correct indentation")
+                  yaml.indent(sequence=4, offset=2)
+                  
+                  # use ruamel.yaml to write the modified data back to the file while preserving indentation
+                  print("Saving the Kustomization.yaml file")
+                  yaml.dump(kustomization_data, f)
+                  # truncate the file to the current position to remove any remaining content
+                  f.truncate()
+                  print("Kustomization.yaml file saved")
+                else:
+                  print(f"{namespace_name} already in Kustomization.yaml")          
