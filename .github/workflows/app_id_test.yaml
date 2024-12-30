@@ -71,7 +71,7 @@ jobs:
       - name: Create or update namespace
         shell: python
         run: |
-          #python3 "tools/create_update_namespace.py" '${{ inputs.cloud_provider }}' '${{ inputs.cluster_group }}' '${{ inputs.deploy_environment }}'  '${{ inputs.namespace_name }}' '${{ inputs.aad_group }}' '${{ inputs.app_id }}' '${{ inputs.apps }}'
+          #python3 "tools/create_update_namespace.py" '${{ inputs.cluster_provider }}' '${{ inputs.cluster_group }}' '${{ inputs.deploy_environment }}'  '${{ inputs.namespace_name }}' '${{ inputs.aad_group }}' '${{ inputs.app_id }}' '${{ inputs.apps }}'
           import os
           import sys
           import json
