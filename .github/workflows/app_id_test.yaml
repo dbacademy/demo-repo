@@ -149,3 +149,6 @@ jobs:
                   # update AppID
                   print("Updating the patch for FinOps details.")
                   valuePatch["extraLabels"]["AppID"] = app_id
+
+                  # update namespace name 
+                  valuePatch["namespace"]["name"]=namespace_name                  
