@@ -27,6 +27,13 @@ patches:
         value: |
           namespace:
             name: {namespace_name}
+          quota:
+            enabled: true
+            hard:
+              requests.cpu: "20"
+              requests.memory: 80Gi
+              limits.cpu: "40"
+              limits.memory: 160Gi
           rbac:
             OIDCGroupMapping:
               "{aad_group}": "namespace-edit"
