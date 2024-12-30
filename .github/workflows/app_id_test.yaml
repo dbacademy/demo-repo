@@ -78,11 +78,11 @@ jobs:
           from ruamel.yaml import YAML
           from ruamel.yaml.scalarstring import PreservedScalarString
           
-          # Get the command-line arguments
+          # Get the command-line arguments defined
           cluster_provider='${{ inputs.cluster_provider }}'
           cluster_environment= '${{ inputs.cluster_environment }}'
           namespace_name= '${{ inputs.namespace_name }}'
-          add_group= '${{ inputs.aad_group }}'
+          aad_group= '${{ inputs.aad_group }}'
           app_id= '${{ inputs.app_id }}'
 
           # Check cluster provider
