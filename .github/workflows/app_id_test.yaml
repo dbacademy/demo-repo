@@ -146,13 +146,6 @@ jobs:
                   if '{aad_group}' in OIDCGroupMapping:
                       del OIDCGroupMapping['{aad_group}']
                   
-                  adgroup=valuePatch["argocdproperties"]["adgroup"] 
-                  if not(f"{aad_group}" in adgroup):
-                      adgroup.insert(len(adgroup),f"{aad_group}")
-
-                  if None in adgroup:
-                      adgroup.remove(None)
-
                   # update AppID
                   print("Updating the patch for FinOps details.")
                   valuePatch["extraLabels"]["AppID"] = app_id
