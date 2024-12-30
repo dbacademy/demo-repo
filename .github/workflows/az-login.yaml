@@ -30,5 +30,9 @@ jobs:
           grp_id=$(az ad group show --group "${{ inputs.groupname }}" --query id --out tsv)
           echo "Group ID is $GR_ID"
           echo "gr id is $grp_id"
+          echo "grp_id=$grp_id" >> $GITHUB_ENV
           #az role assignment create --assignee "$grp_id" --role "Reader" --scope "/subscriptions/cf41bb7f-c69b-4c3c-b595-577467e0c862/resourceGroups/${{ inputs.rgname }}"
           #pwd
+
+    - name: 'Run Azure CLI commands'
+      run: echo "The fetched group id is" ${{ env.grp_id }}
