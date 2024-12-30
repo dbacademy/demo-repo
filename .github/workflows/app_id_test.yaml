@@ -225,3 +225,23 @@ jobs:
                 print("Kustomization.yaml file saved")
               else:
                 print(f"{namespace_name} already in Kustomization.yaml")      
+
+      - name: Commit changes made to Kustomization.yaml file
+        id: commit-changes
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.email "ocpopvcc@volvocars.com"
+            git config user.name "Ocp-Ops"
+            echo "git branch -l"
+            git branch -l
+            echo "git add";
+            git add -A
+            echo "git commit";
+            git commit -m "Created/Updated kustomization.yaml" -m "Created/Updated kustomization.yaml for ${{ inputs.namespace_name }}"
+            echo "git push -u origin update-kustomization-${{ inputs.namespace_name }}-${{ inputs.app_id }}";
+            git push -u origin update-kustomization-${{ inputs.namespace_name }}-${{ inputs.app_id }}
+          else
+            echo "No changes to commit.";
+          fi
