@@ -201,6 +201,7 @@ jobs:
           # open the kustomization.yaml file for reading and writing
           fname = "kustomization.yaml"
           print("Load the kustomization data")
+          with open("kustomization.yaml", "r+") as f:          
               kustomization_data = yaml.load(f)
               if not namespace_name in kustomization_data["resources"]:
                 print("Append namespace details in the Kustomization")
