@@ -59,7 +59,7 @@ jobs:
           pwd
           git fetch --unshallow
           echo "git checkout main"
-          git checkout -b update-kustomization-${{ inputs.namespace_name }}-${{ inputs.cluster_environment }} 
+          git checkout -b update-kustomization-${{ inputs.namespace_name }}-${{ inputs.app_id }}-${{ inputs.cluster_environment }} 
 
       # Install python packages
       - name: Install packages
@@ -240,8 +240,8 @@ jobs:
             git add -A
             echo "git commit";
             git commit -m "Created/Updated kustomization.yaml" -m "Created/Updated kustomization.yaml for ${{ inputs.namespace_name }}"
-            echo "git push -u origin update-kustomization-${{ inputs.namespace_name }}-${{ inputs.app_id }}";
-            git push -u origin update-kustomization-${{ inputs.namespace_name }}-${{ inputs.app_id }}
+            echo "git push -u origin update-kustomization-${{ inputs.namespace_name }}-${{ inputs.app_id }}-${{ inputs.cluster_environment }}";
+            git push -u origin update-kustomization-${{ inputs.namespace_name }}-${{ inputs.app_id }}-${{ inputs.cluster_environment }}
           else
             echo "No changes to commit.";
           fi
