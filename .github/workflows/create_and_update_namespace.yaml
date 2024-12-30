@@ -105,6 +105,8 @@ jobs:
 
           if namespace_exists:
               print(f"The namespace {namespace_name} exists, updating the file {kustomization_path} .") 
+              print(f"The namespace {namespace_name} exists, Please raise pull request for any update .") 
+              sys.exit(1)
           else:
               print(f"The namespace {namespace_name} does not exists, will be created.")
               kustomization_path = f"templates/namespace/{cluster_provider}/{cluster_environment}/{fname}"
