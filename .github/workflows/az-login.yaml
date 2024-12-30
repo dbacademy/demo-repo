@@ -15,8 +15,7 @@ on:
 jobs: 
   build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-      GR_ID: az ad group show --group "${{ inputs.groupname }}" --query id --out tsv
+
     steps:
     - name: 'Az CLI login'
       uses: azure/login@v1
@@ -28,7 +27,7 @@ jobs:
           az account show -o table
           az group list -o table
           grp_id=$(az ad group show --group "${{ inputs.groupname }}" --query id --out tsv)
-          echo "Group ID is $GR_ID"
+          #echo "Group ID is $GR_ID"
           echo "gr id is $grp_id"
           echo "grp_id=$grp_id" >> $GITHUB_ENV
           #az role assignment create --assignee "$grp_id" --role "Reader" --scope "/subscriptions/cf41bb7f-c69b-4c3c-b595-577467e0c862/resourceGroups/${{ inputs.rgname }}"
