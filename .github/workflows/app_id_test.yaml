@@ -82,7 +82,7 @@ jobs:
           cluster_provider='${{ inputs.cluster_provider }}'
           cluster_environment= '${{ inputs.cluster_environment }}'
           namespace_name= '${{ inputs.namespace_name }}'
-          add_group= '${{ inputs.add_group }}'
+          add_group= '${{ inputs.aad_group }}'
           app_id= '${{ inputs.app_id }}'
 
           # Check cluster provider
