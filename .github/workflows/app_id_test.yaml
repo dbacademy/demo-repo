@@ -194,9 +194,9 @@ jobs:
           print("Namespace directory path: {0}".format(namespace_path))
           fname = "kustomization.yaml"
           kustomization_path = namespace_path + "/" + fname
-          # Change directory
-          print(f"Changing directory to: {cwd}")
-          os.chdir( cwd )
+          # Change directory to namespace_path
+          print(f"Changing directory to: {namespace_path}")
+          os.chdir( namespace_path )
             
           yaml =  YAML(typ=['rt', 'string'])
           yaml.default_flow_style = False
