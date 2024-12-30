@@ -152,3 +152,26 @@ jobs:
 
                   # update namespace name 
                   valuePatch["namespace"]["name"]=namespace_name                  
+
+                  valuePatchstr=yaml.dump_to_string(valuePatch)
+                  patch["value"]= PreservedScalarString(valuePatchstr)
+
+          docPatchesstr=yaml.dump_to_string(docPatches)
+          if kustomization_data.keys().__contains__("patchesJson6902"):
+            kustomization_data["patchesJson6902"][0]["patch"] = docPatchesstr
+            kustomization_data["patchesJson6902"][0]["patch"] = PreservedScalarString(docPatchesstr)
+          else:
+            kustomization_data["patches"][0]["patch"] = docPatchesstr
+            kustomization_data["patches"][0]["patch"] = PreservedScalarString(docPatchesstr)                  
+
+
+          # Dump the modified object to the YAML file
+          if not os.path.isdir(namespace_path):
+              os.mkdir(namespace_path)
+
+          print(f"Updating the {fname}.")
+
+          with open(namespace_path + "/" + fname, "w") as f:
+              yaml.dump(kustomization_data, f)
+
+          print("Namespace details saved successfully.")            
