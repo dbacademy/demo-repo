@@ -132,10 +132,10 @@ jobs:
 
           if kustomization_data.keys().__contains__("patchesJson6902"):
               docPatches = yaml.load(kustomization_data["patchesJson6902"][0]["patch"])
-              kustomization_data["patchesJson6902"][0]["target"]["name"] = f"base-application-{namespace_name}"
+              #kustomization_data["patchesJson6902"][0]["target"]["name"] = f"base-application-{namespace_name}"
           else:
               docPatches = yaml.load(kustomization_data["patches"][0]["patch"])
-              kustomization_data["patches"][0]["target"]["name"] = f"base-application-{namespace_name}"
+              #kustomization_data["patches"][0]["target"]["name"] = f"base-application-{namespace_name}"
 
           for patch in docPatches:
               if patch["path"] == '/spec/source/helm/values':
