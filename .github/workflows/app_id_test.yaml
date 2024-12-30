@@ -232,8 +232,8 @@ jobs:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
         run: |
           if [ -n "$(git status --porcelain)" ]; then
-            git config user.email "ocpopvcc@volvocars.com"
-            git config user.name "Ocp-Ops"
+            git config user.email "dbacademy@gmail.com"
+            git config user.name "dbacademy"
             echo "git branch -l"
             git branch -l
             echo "git add";
