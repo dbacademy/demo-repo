@@ -137,7 +137,7 @@ jobs:
 
           for patch in docPatches:
               if patch["path"] == '/spec/source/helm/values':
-                  print("Updating the patch for apps and permissions.")
+                  print("Updating the patch for apps and RBAC permissions.")
                   valuePatch = yaml.load(patch["value"])
               
                   # Update the AAD group and namespace name
